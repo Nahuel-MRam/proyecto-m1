@@ -4,9 +4,13 @@
   margin: 0;
   padding: 0;
 }
+main {
+  max-width: 600px;
+  margin: 0 auto;
+}
 
 body {
-  font-family: sans-serif;
+  font-family: 'Segoe UI', system-ui, sans-serif;
   padding: 2rem;
   background-color: #1a1a1a;
   color: #f0f0f0
@@ -14,6 +18,9 @@ body {
 
 h1 {
   margin-bottom: 1.5rem;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
 }
 
 /* Controles superiores */
@@ -27,8 +34,8 @@ h1 {
 
 #btn-generar {
   padding: 8px 20px;
-  background-color: #4a90e2;
-  color: white;
+  background-color: #f0f0f0c9;
+  color: #1a1a1a;
   border: none;
   border-radius: 6px;
   font-size: 15px;
@@ -36,13 +43,13 @@ h1 {
 }
 
 #btn-generar:hover {
-  background-color: #357abd;
+  background-color: #cccccc7c;
 }
 
 /* Grid de tarjetas */
 #paleta {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 12px;
 }
 
@@ -50,13 +57,17 @@ h1 {
 .color-card {
   border-radius: 8px;
   overflow: hidden;
-  border: 1px solid #ddd;
+  border: 1px solid #333;
   cursor: pointer;
-  background-color: white;
+  background-color: #2a2a2a;
+  transition: transform 0.2s ease
+}
+.color-card:hover {
+  transform: translateY(-4px);
 }
 
 .color-card:focus {
-  outline: 3px solid #4a90e2;
+  outline: 3px solid #4a91e248;
   outline-offset: 2px;
 }
 
@@ -120,7 +131,7 @@ h1 {
 .slider {
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
-  background-color: #4a90e2;
+  background-color: #4a91e248;
   border-radius: 24px;
   cursor: pointer;
   transition: background-color 0.3s;
@@ -134,7 +145,7 @@ h1 {
   height: 18px;
   left: 3px;
   top: 3px;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.726);
   border-radius: 50%;
   transition: transform 0.3s;
 }
@@ -151,7 +162,7 @@ h1 {
   text-align: center;
   font-size: 12px;
   font-family: monospace;
-  color: #444;
+  color: #f0f0f0;
 }
 
 .codigo-hsl.oculto,
@@ -169,7 +180,20 @@ h1 {
     align-items: stretch;
   }
 
-  select,
+select {
+    appearance: none;
+    background-color: #2a2a2a;
+    color: #f0f0f0;
+    border: 1px solid #444;
+    border-radius: 6px;
+    padding: 6px 10px;
+    font-size: 14px;
+    cursor: pointer;
+}  
+select option {
+    background-color: #2a2a2a;
+    color: #f0f0f0;
+}
   #btn-generar {
     width: 100%;
   }
