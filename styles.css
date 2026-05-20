@@ -5,7 +5,7 @@
   padding: 0;
 }
 main {
-  max-width: 600px;
+  max-width: 800px;
   margin: 0 auto;
 }
 
@@ -34,16 +34,32 @@ h1 {
 
 #btn-generar {
   padding: 8px 20px;
-  background-color: #f0f0f0c9;
-  color: #1a1a1a;
-  border: none;
+  background-color: transparent;
+  color: #f0f0f0;
+  border: 1px solid #f0f0f0;
   border-radius: 6px;
   font-size: 15px;
   cursor: pointer;
+  transition: background-color 0.2s;
 }
 
 #btn-generar:hover {
-  background-color: #cccccc7c;
+  background-color: #f0f0f01a;
+}
+
+#btn-guardar {
+  padding: 8px 20px;
+  background-color: transparent;
+  color: #f0f0f0;
+  border: 1px solid #f0f0f0;
+  border-radius: 6px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+#btn-guardar:hover {
+  background-color: #f0f0f01a;
 }
 
 /* Grid de tarjetas */
@@ -211,4 +227,25 @@ select option {
   opacity: 1;
 }
 
+}
+#seccion-guardadas {
+  margin-top: 2rem;
+}
+
+#seccion-guardadas h2 {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  color: #f0f0f0;
+}
+
+.paleta-guardada {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.bloque-guardado {
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
 }

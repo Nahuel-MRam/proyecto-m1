@@ -178,7 +178,43 @@ function generarPaleta() {
   // Avisamos que la paleta fue generada
   mostrarToast("¡Paleta generada!");
 }
+// Funcion guardado de paletas
+   function renderizarPaletas() {
+  const paletas = JSON.parse(localStorage.getItem("paletas") || "[]");
+  const contenedor = document.getElementById("paletas-guardadas");
+  contenedor.innerHTML = "";
 
+  paletas.forEach(function (paleta) {
+    const fila = document.createElement("div");
+    fila.classList.add("paleta-guardada");
+
+    paleta.forEach(function (color) {
+      const bloque = document.createElement("div");
+      bloque.classList.add("bloque-guardado");
+      bloque.style.backgroundColor = color;
+      fila.appendChild(bloque);
+    });
+
+    contenedor.appendChild(fila);
+  });
+}
+
+function guardarPaleta() {
+  const cards = document.querySelectorAll(".color-card .muestra");
+  const colores = [];
+
+  cards.forEach(function (muestra) {
+    colores.push(muestra.style.backgroundColor);
+  });
+
+  const paletas = JSON.parse(localStorage.getItem("paletas") || "[]");
+  paletas.push(colores);
+  localStorage.setItem("paletas", JSON.stringify(paletas));
+
+  mostrarToast("¡Paleta guardada!");
+  renderizarPaletas();
+}
+    
 // ============================================================
 //* BLOQUE 5: EVENTOS
 // ============================================================
@@ -208,3 +244,7 @@ document
 // Generamos una paleta apenas carga la página,
 // para que no aparezca vacía al entrar
 generarPaleta();
+
+document.getElementById("btn-guardar").addEventListener("click", guardarPaleta);
+
+renderizarPaletas();

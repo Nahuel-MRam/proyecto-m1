@@ -19,17 +19,19 @@
           <option value="9">9 colores</option>
         </select>
 
-        <button id="btn-generar">Generar Paleta</button>
+        
 
         <!-----Toggle de formato-------->
         <div class="toggle-formato">
           <span>HEX</span>
-          <label class="toggle"">
+          <label class="toggle">
             <input type="checkbox" id="toggle-formato">
             <span class="slider"></span>
           </label>
           <span>HSL</span>
         </div>
+        <button id="btn-generar">Generar Paleta</button>
+        <button id="btn-guardar">Guardar Paleta</button>
       </div>
 
       <!---RENDERIZAR LAS TARJETAS DE COLORES---->
@@ -39,6 +41,11 @@
         aria-label="Paleta de colores generada"
       ></div>
     </main>
+    <!-- Sección paletas guardadas -->
+    <section id="seccion-guardadas" aria-label="Paletas guardadas">
+      <h2>Paletas guardadas</h2>
+      <div id="paletas-guardadas"></div>
+    </section>
     <!-- Toast para microfeedback -->
     <div id="toast" role="status" aria-live="polite"></div>
 
