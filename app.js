@@ -1,4 +1,5 @@
 //* BLOQUE 1: FUNCIÓN PARA GENERAR UN COLOR HEX ALEATORIO
+let coloresBloqueados = [];
 
 function hexadecimalAleatorio() {
   const letras = "0123456789ABCDEF";
@@ -76,8 +77,7 @@ function generarPaleta() {
   // El bucle for se repite "cantidad" veces (6, 8 o 9)
   for (let i = 0; i < cantidad; i++) {
     // Generamos un color HEX aleatorio usando la función
-    const hex = hexadecimalAleatorio();
-
+    const hex = coloresBloqueados[i] || hexadecimalAleatorio();
     // Lo convertimos a HSL para mostrarlo también en la tarjeta
     const hsl = hexadecimalAHsl(hex);
 
@@ -126,12 +126,25 @@ function generarPaleta() {
     // Si el toggle está en HEX, ocultamos el HSL
     if (!mostrarHsl) codigoHsl.classList.add("oculto");
     codigoHsl.textContent = hsl;
-
+    const candado = document.createElement("div");
+    candado.classList.add("candado");
+    candado.textContent = coloresBloqueados[i] ? "🔒" : "🔓";
     // ── Armamos la tarjeta juntando las piezas ───────────────
     // appendChild inserta un elemento ADENTRO de otro
     card.appendChild(muestra);
     card.appendChild(codigoHex);
     card.appendChild(codigoHsl);
+    card.appendChild(candado)
+    candado.addEventListener("click", function (e) {
+      e.stopPropagation();
+      if (coloresBloqueados[i]) {
+        coloresBloqueados[i] = null;
+        candado.textContent = "🔓";
+      } else {
+        coloresBloqueados[i] = hex;
+        candado.textContent = "🔒";
+      }
+    });
 
     // ── Agregamos el evento de clic para copiar ──────────────
     card.addEventListener("click", function () {
