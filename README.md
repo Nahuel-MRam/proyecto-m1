@@ -2,7 +2,7 @@
 
 **Proyecto Integrador — Módulo 1 | Full Stack**  
 **Autor:** Nahuel Ramirez  
-**Demo:** [https://nahuel-mram.github.io/Proyecto-M1/](https://nahuel-mram.github.io/Proyecto-M1/)
+**Demo:** [https://nahuel-mram.github.io/proyecto-m1/](https://nahuel-mram.github.io/proyecto-m1/)
 
 ---
 
